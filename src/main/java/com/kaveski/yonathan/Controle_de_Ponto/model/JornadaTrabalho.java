@@ -3,9 +3,7 @@ package com.kaveski.yonathan.Controle_de_Ponto.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Getter
@@ -17,6 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class JornadaTrabalho {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String descricao;

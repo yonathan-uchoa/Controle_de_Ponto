@@ -1,6 +1,7 @@
 package com.kaveski.yonathan.Controle_de_Ponto.model;
 
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,18 +15,14 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
+@IdClass(MovimentacaoId.class)
 public class Movimentacao {
-
-    @Embeddable
-    @Data
-    public class MovimentacaoId implements Serializable {
-        private long idMovimento;
-        private long idUsuario;
-
-    }
     @Id
-    @EmbeddedId
-    private MovimentacaoId id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @ManyToOne
+    private Usuario usuario;
+
     @Column
     private LocalDateTime dataEntrada;
     @Column
@@ -36,5 +33,12 @@ public class Movimentacao {
     private Ocorrencia ocorrencia;
     @ManyToOne
     private Calendario calendario;
+
+}
+
+@Data
+class MovimentacaoId implements Serializable {
+    private long id;
+    private Usuario usuario;
 
 }

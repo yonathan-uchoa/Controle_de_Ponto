@@ -3,9 +3,7 @@ package com.kaveski.yonathan.Controle_de_Ponto.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -16,6 +14,7 @@ import javax.persistence.Id;
 @Entity
 public class Ocorrencia {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column
     private String nome;

@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 public class Calendario {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private TipoData tipoData;
