@@ -2,7 +2,6 @@ package com.kaveski.yonathan.Controle_de_Ponto.controller;
 
 
 import com.kaveski.yonathan.Controle_de_Ponto.model.JornadaTrabalho;
-import com.kaveski.yonathan.Controle_de_Ponto.repository.JornadaTrabalhoRepository;
 import com.kaveski.yonathan.Controle_de_Ponto.service.JornadaTrabalhoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
