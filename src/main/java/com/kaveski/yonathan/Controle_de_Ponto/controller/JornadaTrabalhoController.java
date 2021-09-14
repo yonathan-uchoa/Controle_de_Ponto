@@ -26,19 +26,19 @@ public class JornadaTrabalhoController {
         return jornadaTrabalhoService.findAll();
     }
 
-    @GetMapping("/{idJornada}")
-    public JornadaTrabalho getJornadaById(@PathVariable("idJornada") Long idJornada) throws Exception {
-        return jornadaTrabalhoService.findById(idJornada);
+    @GetMapping("/{id}")
+    public JornadaTrabalho getJornadaById(@PathVariable("id") Long id) throws Exception {
+        return jornadaTrabalhoService.findById(id);
     }
 
-    @PutMapping("/{idJornada}")
-    public JornadaTrabalho updateJornada(@PathVariable("idJornada") Long idJornada, @RequestBody JornadaTrabalho jornadaTrabalho) throws Exception{
-        return jornadaTrabalhoService.update(idJornada, jornadaTrabalho);
+    @PutMapping("/{id}")
+    public JornadaTrabalho updateJornada(@PathVariable("id") Long id, @RequestBody JornadaTrabalho jornadaTrabalho) throws Exception{
+        return jornadaTrabalhoService.update(id, jornadaTrabalho);
     }
 
-    @DeleteMapping("/{idJornada}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteJornada(@PathVariable("idJornada") Long idJornada) throws Exception{
-        jornadaTrabalhoService.delete(idJornada);
+    public void deleteJornada(@PathVariable("id") Long id) throws Exception{
+        jornadaTrabalhoService.delete(id);
     }
 }

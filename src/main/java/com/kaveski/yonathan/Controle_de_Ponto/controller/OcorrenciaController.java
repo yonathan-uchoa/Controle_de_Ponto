@@ -25,19 +25,19 @@ public class OcorrenciaController {
         return ocorrenciaService.findAll();
     }
 
-    @GetMapping("/{idOcorrencia}")
-    public Ocorrencia getOcorrenciaById(@PathVariable("idOcorrencia") Long idOcorrencia) throws Exception {
-        return ocorrenciaService.findById(idOcorrencia);
+    @GetMapping("/{id}")
+    public Ocorrencia getOcorrenciaById(@PathVariable("id") Long id) throws Exception {
+        return ocorrenciaService.findById(id);
     }
 
-    @PutMapping("/{idOcorrencia}")
-    public Ocorrencia updateOcorrencia(@PathVariable("idOcorrencia") Long idOcorrencia, @RequestBody Ocorrencia ocorrencia) throws Exception{
-        return ocorrenciaService.update(idOcorrencia, ocorrencia);
+    @PutMapping("/{id}")
+    public Ocorrencia updateOcorrencia(@PathVariable("id") Long id, @RequestBody Ocorrencia ocorrencia) throws Exception{
+        return ocorrenciaService.update(id, ocorrencia);
     }
 
-    @DeleteMapping("/{idOcorrencia}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOcorrencia(@PathVariable("idOcorrencia") Long idOcorrencia) throws Exception {
-        ocorrenciaService.delete(idOcorrencia);
+    public void deleteOcorrencia(@PathVariable("id") Long id) throws Exception {
+        ocorrenciaService.delete(id);
     }
 }

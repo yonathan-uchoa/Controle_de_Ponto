@@ -19,7 +19,7 @@ public class Empresa {
     @Column
     private String descricao;
     @Column
-    @CNPJ
+    //@CNPJ
     private String cnpj;
     @Column
     private String endereco;

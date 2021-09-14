@@ -15,26 +15,26 @@ public class EmpresaController {
     EmpresaService empresaService;
 
     @PostMapping
-    public Empresa createCategoriaUsuario(@RequestBody Empresa empresa){
+    public Empresa createEmpresa(@RequestBody Empresa empresa){
         return empresaService.save(empresa);
     }
 
     @GetMapping
-    public List<Empresa> getCategoriaUsuarioList(){
+    public List<Empresa> getEmpresaList(){
         return empresaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Empresa getCategoriaUsuarioById(@PathVariable("id") Long id) throws Exception {
+    public Empresa getEmpresaById(@PathVariable("id") Long id) throws Exception {
         return empresaService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public Empresa updateCategoriaUsuario(@PathVariable("id") Long id, @RequestBody Empresa empresa) throws Exception{
+    public Empresa updateEmpresa(@PathVariable("id") Long id, @RequestBody Empresa empresa) throws Exception{
         return empresaService.update(id, empresa);
     }
     @DeleteMapping("/{id}")
-    public void deleteCategoriaUsuario(@PathVariable("id") Long id) throws Exception{
+    public void deleteEmpresa(@PathVariable("id") Long id) throws Exception{
         empresaService.delete(id);
     }
 }
