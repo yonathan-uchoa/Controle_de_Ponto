@@ -32,15 +32,14 @@ public class JornadaTrabalhoController {
         return jornadaTrabalhoService.findById(idJornada);
     }
 
-    @PutMapping("/idJornada")
+    @PutMapping("/{idJornada}")
     public JornadaTrabalho updateJornada(@PathVariable("idJornada") Long idJornada, @RequestBody JornadaTrabalho jornadaTrabalho) throws Exception{
         return jornadaTrabalhoService.update(idJornada, jornadaTrabalho);
     }
 
-    @DeleteMapping("/{idJornada")
+    @DeleteMapping("/{idJornada}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteJornada(@PathVariable("idJornada") Long idJornada) throws Exception{
         jornadaTrabalhoService.delete(idJornada);
-
     }
 }

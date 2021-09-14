@@ -30,7 +30,7 @@ public class JornadaTrabalhoService {
 
     public JornadaTrabalho update(Long idJornada, JornadaTrabalho jornadaTrabalho) throws Exception {
         verifyIfExist(idJornada);
-//        jornadaTrabalho.setId(idJornada);
+        jornadaTrabalho.setId(idJornada);
         return jornadaTrabalhoRepository.save(jornadaTrabalho);
     }
 

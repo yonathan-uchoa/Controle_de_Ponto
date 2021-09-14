@@ -31,6 +31,7 @@ public class OcorrenciaService {
 
     public Ocorrencia update(Long idOcorrencia, Ocorrencia ocorrencia) throws Exception {
         verifyIfExist(idOcorrencia);
+        ocorrencia.setId(idOcorrencia);
         return ocorrenciaRepository.save(ocorrencia);
     }
 
