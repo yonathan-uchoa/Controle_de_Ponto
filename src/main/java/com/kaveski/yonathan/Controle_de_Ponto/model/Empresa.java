@@ -3,6 +3,7 @@ package com.kaveski.yonathan.Controle_de_Ponto.model;
 import lombok.*;
 
 import javax.persistence.*;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 @Getter
 @Setter
@@ -18,6 +19,7 @@ public class Empresa {
     @Column
     private String descricao;
     @Column
+    @CNPJ
     private String cnpj;
     @Column
     private String endereco;
