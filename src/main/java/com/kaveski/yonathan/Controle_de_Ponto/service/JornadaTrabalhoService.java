@@ -2,23 +2,19 @@ package com.kaveski.yonathan.Controle_de_Ponto.service;
 
 import com.kaveski.yonathan.Controle_de_Ponto.model.JornadaTrabalho;
 import com.kaveski.yonathan.Controle_de_Ponto.repository.JornadaTrabalhoRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.List;
 import java.util.Optional;
 
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 public class JornadaTrabalhoService {
 
-    @Autowired
     JornadaTrabalhoRepository jornadaTrabalhoRepository;
-
-    public JornadaTrabalhoService(JornadaTrabalhoRepository jornadaTrabalhoRepository) {
-        this.jornadaTrabalhoRepository = jornadaTrabalhoRepository;
-    }
 
     public JornadaTrabalho save(JornadaTrabalho jornadaTrabalho){
         return jornadaTrabalhoRepository.save(jornadaTrabalho);
@@ -28,15 +24,24 @@ public class JornadaTrabalhoService {
         return jornadaTrabalhoRepository.findAll();
     }
 
-    public Optional<JornadaTrabalho> findById(Long idJornada) {
-        return jornadaTrabalhoRepository.findById(idJornada);
+    public JornadaTrabalho findById(Long idJornada) throws Exception {
+        return verifyIfExist(idJornada);
     }
 
-    public JornadaTrabalho update(JornadaTrabalho jornadaTrabalho){
+    public JornadaTrabalho update(Long idJornada, JornadaTrabalho jornadaTrabalho) throws Exception {
+        verifyIfExist(idJornada);
+//        jornadaTrabalho.setId(idJornada);
         return jornadaTrabalhoRepository.save(jornadaTrabalho);
     }
 
-    public void delete(Long idJornada) {
+    public void delete(Long idJornada) throws Exception {
+        verifyIfExist(idJornada);
         jornadaTrabalhoRepository.deleteById(idJornada);
+    }
+
+    private JornadaTrabalho verifyIfExist(Long id) throws Exception {
+        return jornadaTrabalhoRepository.findById(id).orElseThrow(()->
+                new Exception("Jornada nao Encontrada")
+        );
     }
 }

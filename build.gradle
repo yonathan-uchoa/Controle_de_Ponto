@@ -13,26 +13,31 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok'
+
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.12.5'
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
+	runtimeOnly 'com.h2database:h2'
 
-	compileOnly 'org.projectlombok:lombok:1.18.10'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation group: 'com.h2database', name: 'h2', version: '1.4.200'
 
 	implementation group: 'io.springfox', name: 'springfox-bean-validators', version: '3.0.0'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
 
-	implementation group: 'org.hibernate', name: 'hibernate-envers', version: '5.5.7.Final'
-	implementation group: 'org.hibernate', name: 'hibernate-validator', version: '7.0.1.Final'
+	implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.12.5'
+	
+//	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.26'
 
-	testImplementation('org.springframkework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
+
+
 }
 test {
 	useJUnitPlatform()
